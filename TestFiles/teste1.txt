@@ -1,0 +1,8 @@
+10000
+Thiago Vitor 2000
+Thiago Joao 3000
+Vitor Antonio 4000
+Vitor Carlos 5000
+Joao Ana 6000
+Joao Maria 7000
+Thiago Lucas 8000
