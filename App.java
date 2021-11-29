@@ -28,7 +28,6 @@ public class App {
             // Geramos o diagrama da arvore
             arvore.geraDOT();
 
-
         } catch (IOException e) {
             System.err.format("Erro na leitura do arquivo: ", e);
         }  

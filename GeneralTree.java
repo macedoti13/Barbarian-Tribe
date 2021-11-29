@@ -411,9 +411,11 @@ public class GeneralTree {
         return lista;
     }
 
+
+
     /**
      * Retorna o primeiro guerreiro na arvore genealogica
-     * @return
+     * @return nome da raiz
      */
     public String pai() {
         return root.nome;
