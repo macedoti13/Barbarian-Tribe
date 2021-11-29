@@ -411,7 +411,7 @@ public class GeneralTree {
         return lista;
     }
 
-
+    
 
     /**
      * Retorna o primeiro guerreiro na arvore genealogica
