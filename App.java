@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 public class App {
    public static void main(String[] args) {
 
-        Path path1 = Paths.get("TestFiles/exemplo.txt");
+        Path path1 = Paths.get("TestFiles/caso10c.txt");
 
         try (BufferedReader reader = Files.newBufferedReader(path1, Charset.defaultCharset())) {
             // Cria o objeto arvore
@@ -27,7 +27,8 @@ public class App {
             arvore.heranca();
             // Geramos o diagrama da arvore
             arvore.geraDOT();
-
+            // Printamos o nome e a quantidade de terras do maior nodo no ultimo nivel
+            arvore.PrintMaioresTerras();
         } catch (IOException e) {
             System.err.format("Erro na leitura do arquivo: ", e);
         }  

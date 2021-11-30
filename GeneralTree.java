@@ -374,7 +374,7 @@ public class GeneralTree {
     public void heranca() {
         // Lista com os nomes em ordem de nivel
         LinkedList<String> lista = positionsWidth();
-    // Interage com cada elemento da lista atribuindo as terras 
+        // Interage com cada elemento da lista atribuindo as terras 
         for (int i=0; i<lista.size(); i++) {
             Node elem = searchNodeRef(lista.get(i), root);
             if (elem != root) {
@@ -411,7 +411,56 @@ public class GeneralTree {
         return lista;
     }
 
-    
+    /**
+     * Cria uma lista e adiciona nela os elementos do ultimo nivel da arvore
+     * @return a lista somente com os elementos do ultimo nivel
+     */
+    public LinkedList<String> LastLevelElens() {
+        //
+        LinkedList<String> lista = positionsWidth();
+        LinkedList<String> listaFim = new LinkedList<>();
+        // 
+        listaFim.add(lista.get(lista.size()-1));
+        //
+        int UltimoLevel = level(listaFim.get(0));
+        //
+        for(int i=1; i<lista.size(); i++) {
+            if (level(lista.get(lista.size()-(i+1))) != UltimoLevel) {
+                break;
+            }
+            else {
+                listaFim.add(lista.get(lista.size()-(i+1)));
+            }
+        }
+        return listaFim;
+    }
+
+    /**
+     * Cria um nodo que contem o guerreiro do ultimo nivel com a maior quantidade de terras
+     * @return O nodo que referencia para o guerreiro
+     */
+    public Node MaioresTerras() {
+        //
+        LinkedList<String> lista = LastLevelElens();
+        Node MaiorAtual = searchNodeRef(lista.get(0), root);
+        //
+        for (int i=1; i<lista.size(); i++) {
+            Node aux = searchNodeRef(lista.get(i), root);
+            if (aux.terras > MaiorAtual.terras) {
+                MaiorAtual = aux;
+            }
+        }
+        return MaiorAtual;
+    }
+
+    /**
+     * Faz o print do nome e das terras do nodo do ultimo nivel com a maior quantidade de terras
+     */
+    public void PrintMaioresTerras() {
+        Node aux = MaioresTerras();
+        System.out.println("Nome do guerreiro com maiores terras: " + aux.nome);
+        System.out.println("Quantidade de terras: " + aux.terras + "\n");
+    }
 
     /**
      * Retorna o primeiro guerreiro na arvore genealogica
